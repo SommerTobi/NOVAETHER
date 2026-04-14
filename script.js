@@ -1,3 +1,19 @@
+// ===== THEME SWITCH =====
+const storedTheme = localStorage.getItem('novaether-theme');
+const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const initialTheme = storedTheme || defaultTheme;
+document.documentElement.dataset.theme = initialTheme;
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem('novaether-theme', theme);
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.textContent = theme === 'light' ? '🌙' : '☀︎';
+    toggle.setAttribute('aria-label', theme === 'light' ? 'Wechsel zu Dunkelmodus' : 'Wechsel zu Hellmodus');
+  }
+}
+
 // ===== STARFIELD ANIMATION =====
 const canvas = document.getElementById('bg-canvas');
 if (canvas && canvas.getContext) {
@@ -10,21 +26,25 @@ if (canvas && canvas.getContext) {
   let mouseY = height / 2;
   let targetMouseX = width / 2;
   let targetMouseY = height / 2;
+  const isMobile = window.matchMedia('(pointer: coarse)').matches || /Mobi|Android|iP(hone|ad|od)|Opera Mini|IEMobile/.test(navigator.userAgent);
 
   function resizeCanvas() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
     mouseX = targetMouseX = width / 2;
     mouseY = targetMouseY = height / 2;
+    if (isMobile) drawFrame();
   }
 
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  window.addEventListener('mousemove', (e) => {
-    targetMouseX = e.clientX;
-    targetMouseY = e.clientY;
-  });
+  if (!isMobile) {
+    window.addEventListener('mousemove', (e) => {
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
+    });
+  }
 
   class Shape {
     constructor(type) {
@@ -104,15 +124,28 @@ if (canvas && canvas.getContext) {
     shapes.push(new Shape(type));
   }
 
+  function drawFrame() {
+    const overlayColor = getComputedStyle(document.documentElement).getPropertyValue('--canvas-overlay').trim() || 'rgba(6, 9, 19, 0.65)';
+    ctx.fillStyle = overlayColor;
+    ctx.fillRect(0, 0, width, height);
+    shapes.forEach(s => { s.draw(); });
+  }
+
   function animate() {
     mouseX += (targetMouseX - mouseX) * 0.05;
     mouseY += (targetMouseY - mouseY) * 0.05;
-    ctx.fillStyle = 'rgba(6, 9, 19, 0.65)';
+    const overlayColor = getComputedStyle(document.documentElement).getPropertyValue('--canvas-overlay').trim() || 'rgba(6, 9, 19, 0.65)';
+    ctx.fillStyle = overlayColor;
     ctx.fillRect(0, 0, width, height);
     shapes.forEach(s => { s.update(); s.draw(); });
     requestAnimationFrame(animate);
   }
-  animate();
+
+  if (isMobile) {
+    drawFrame();
+  } else {
+    animate();
+  }
 }
 
 // ===== HEADER SCROLL =====
@@ -131,6 +164,7 @@ if (header) {
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const nav = document.querySelector('.nav-links');
+  const themeToggle = document.getElementById('theme-toggle');
 
   if (hamburger && nav) {
     hamburger.addEventListener('click', () => {
@@ -149,7 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== REVEAL ON SCROLL =====
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      setTheme(nextTheme);
+    });
+    setTheme(document.documentElement.dataset.theme || initialTheme);
+  }
+
   function reveal() {
     document.querySelectorAll('.reveal').forEach(el => {
       if (el.getBoundingClientRect().top < window.innerHeight - 80) {
