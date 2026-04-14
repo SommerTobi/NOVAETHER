@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVÆTHER | Premium Webdesign von Tobias Sommer</title>
+  <meta name="description" content="NOVÆTHER – Maßgeschneiderte Websites für Premiummarken. Webdesign & Frontend-Entwicklung aus Österreich von Tobias Sommer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1>NOVÆTHER</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="anfrage.html">Anfrage</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Premium Webarchitektur</p>
+          <h1>Websites, die <em>bleiben.</em></h1>
+          <p>Ich entwerfe digitale Erlebnisse für Marken, die nicht mittelmäßig sein wollen. Kein Template – nur Handwerk.</p>
+          <div class="hero-actions">
+            <a href="anfrage.html" class="btn">Projekt anfragen</a>
+            <a href="#services" class="btn-ghost">Leistungen ansehen →</a>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal">
+          <div class="hero-card">
+            <div class="stat-row">
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Maßarbeit</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Templates</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">Österreich</span>
+                <span class="stat-label">Standort</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">HTL</span>
+                <span class="stat-label">Ausbildung</span>
+              </div>
+            </div>
+            <div class="card-quote">
+              „Design ist nicht, wie etwas aussieht –<br>
+              Design ist, wie etwas funktioniert."
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <p class="section-label reveal">Leistungen</p>
+      <h2 class="section-title reveal">Was ich für dich baue.</h2>
+      <p class="section-subtitle reveal">Jedes Projekt beginnt mit einem Gespräch. Kein Overhead, keine Agentur-Bürokratie – nur du, ich, und eine Website, die wirklich funktioniert.</p>
+
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <h3>Webdesign</h3>
+          <p>Visuelles Konzept, UX-Strategie und ein Design, das deine Marke sofort erkennbar macht. Klar, zeitlos, ohne Kompromisse.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <h3>Entwicklung</h3>
+          <p>Sauberer, performanter Frontend-Code. Schnelle Ladezeiten, mobile-first, und kein unnötiger Ballast im Hintergrund.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <h3>Pflege & Launch</h3>
+          <p>Deployment, Domain-Setup, und nach dem Go-Live bin ich weiterhin ansprechbar. Deine Website ist keine Einbahnstraße.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <p class="section-label reveal">Ablauf</p>
+      <h2 class="section-title reveal">Wie wir zusammenarbeiten.</h2>
+      <p class="section-subtitle reveal">Transparent, direkt und ohne unnötige Umwege.</p>
+
+      <div class="process-grid">
+        <div class="process-item reveal">
+          <div class="process-num">01</div>
+          <div class="process-content">
+            <h3>Anfrage & Kennenlernen</h3>
+            <p>Du sendest mir dein Projekt über das Anfrageformular. Ich melde mich innerhalb von 48 Stunden für ein kurzes Gespräch.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">02</div>
+          <div class="process-content">
+            <h3>Konzept & Design</h3>
+            <p>Ich entwickle ein visuelles Konzept speziell für deine Marke. Du gibst Feedback, wir verfeinern – bis es passt.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">03</div>
+          <div class="process-content">
+            <h3>Umsetzung</h3>
+            <p>Der genehmigte Entwurf wird in sauberen, modernen Code umgesetzt. Du bekommst regelmäßige Updates zum Fortschritt.</p>
+          </div>
+        </div>
+        <div class="process-item reveal">
+          <div class="process-num">04</div>
+          <div class="process-content">
+            <h3>Launch</h3>
+            <p>Abnahme, letzter Feinschliff, und die Website geht live. Ich begleite dich dabei und bleibe für Fragen erreichbar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-card">
+            <span class="about-tag">Über mich</span>
+            <p>Mein Name ist Tobias Sommer. Ich bin HTL-Schüler in Österreich mit einer Leidenschaft für Webdesign und Frontend-Entwicklung.</p>
+            <p>Mit NOVÆTHER biete ich Unternehmen und Einzelpersonen maßgeschneiderte digitale Lösungen – mit dem Anspruch, der sonst nur von großen Agenturen kommt.</p>
+            <p>Kleine Strukturen, große Qualität.</p>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="section-label">Tobias Sommer</p>
+          <h2 class="section-title">Handwerk statt Massenware.</h2>
+          <p>Ich glaube daran, dass auch junge Unternehmen und Einzelpersonen eine Website verdienen, die sie stolz macht. Deshalb setze ich auf Qualität, Ehrlichkeit und direkte Kommunikation.</p>
+          <p>Kein versteckter Aufwand. Keine leeren Versprechen. Nur Ergebnisse.</p>
+          <div class="skill-list">
+            <span class="skill-tag">HTML & CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Responsive</span>
+            <span class="skill-tag">Performance</span>
+            <span class="skill-tag">Österreich</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <p class="section-label reveal" style="justify-content: center;">Bereit?</p>
+        <h2 class="reveal">Lass uns dein Projekt starten.</h2>
+        <p class="reveal">Eine gute Website ist eine Investition. Ich helfe dir, sie richtig zu machen – von der ersten Idee bis zum Live-Gang.</p>
+        <div class="reveal">
+          <a href="anfrage.html" class="btn">Anfrage starten</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span>NOVÆTHER</span>
+      </div>
+      <p>&copy; 2026 NOVÆTHER · Tobias Sommer · Österreich</p>
+      <nav class="footer-nav">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="anfrage.html">Anfrage</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

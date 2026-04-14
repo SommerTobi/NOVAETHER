@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anfrage | NOVÆTHER</title>
+  <meta name="description" content="Starte dein Webprojekt mit NOVÆTHER – beantworte ein paar Fragen und ich melde mich bei dir.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html">
+        <h1>NOVÆTHER</h1>
+      </a>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="anfrage.html">Anfrage</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <section id="quiz-steps">
+    <div class="container">
+
+      <!-- Progress -->
+      <div class="progress-bar">
+        <div class="progress-dot active"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step active" id="step-1">
+        <p class="section-label">Schritt 1 von 3</p>
+        <h2 class="reveal">Was ist dein Ziel?</h2>
+        <p class="step-subtitle reveal">Wähle, was am besten zu deinem Vorhaben passt.</p>
+        <div class="options reveal">
+          <button class="quiz-option" data-value="Marke stärken">Meine Marke stärker positionieren</button>
+          <button class="quiz-option" data-value="Neue Kunden gewinnen">Neue Kunden gewinnen</button>
+          <button class="quiz-option" data-value="Arbeiten & Portfolio zeigen">Meine Arbeiten & mein Portfolio zeigen</button>
+          <button class="quiz-option" data-value="Online-Präsenz aufbauen">Überhaupt erst online präsent sein</button>
+        </div>
+        <div class="step-nav">
+          <button class="next-btn" disabled>Weiter</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step" id="step-2">
+        <p class="section-label">Schritt 2 von 3</p>
+        <h2 class="reveal">Was ist dir am wichtigsten?</h2>
+        <p class="step-subtitle reveal">Das hilft mir, die richtigen Prioritäten zu setzen.</p>
+        <div class="options reveal">
+          <button class="quiz-option" data-value="Schnelle Umsetzung">Schnelle Umsetzung – ich brauche es bald</button>
+          <button class="quiz-option" data-value="Höchste Qualität">Höchste Qualität – auch wenn es etwas dauert</button>
+          <button class="quiz-option" data-value="Viele Funktionen">Viele Funktionen & Interaktivität</button>
+          <button class="quiz-option" data-value="Günstig & effektiv">Günstig & trotzdem professionell</button>
+        </div>
+        <div class="step-nav">
+          <button class="prev-btn">← Zurück</button>
+          <button class="next-btn" disabled>Weiter</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step" id="step-3">
+        <p class="section-label">Schritt 3 von 3</p>
+        <h2 class="reveal">Fast geschafft.</h2>
+        <p class="step-subtitle reveal">Hinterlasse deine Kontaktdaten – ich melde mich innerhalb von 48 Stunden.</p>
+
+        <div class="quiz-summary reveal">
+          <p id="summary-text">Deine Angaben werden hier zusammengefasst.</p>
+        </div>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form reveal">
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+          <input type="hidden" name="subject" value="Neue Anfrage von NOVÆTHER">
+          <input type="hidden" name="redirect" value="https://novaether.at?success=true">
+          <input type="hidden" name="from_name" value="NOVÆTHER Anfrage">
+          <input type="hidden" id="project_details" name="Projekt-Details" value="">
+
+          <div class="field-row">
+            <label for="name">Dein Name *</label>
+            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+          </div>
+          <div class="field-row">
+            <label for="email">E-Mail-Adresse *</label>
+            <input type="email" id="email" name="email" placeholder="max@beispiel.at" required>
+          </div>
+          <div class="field-row">
+            <label for="company">Unternehmen / Projektname</label>
+            <input type="text" id="company" name="company" placeholder="Optional">
+          </div>
+          <div class="field-row">
+            <label for="message">Sonstiges, das ich wissen sollte</label>
+            <textarea id="message" name="message" rows="4" placeholder="Budget, Timeline, besondere Wünsche ..."></textarea>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:8px;">
+            <button type="submit" class="btn">Anfrage absenden</button>
+            <button type="button" class="prev-btn">← Zurück</button>
+          </div>
+
+          <p style="margin-top:20px;font-size:12px;color:rgba(244,244,244,0.35);">
+            Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer
+            <a href="datenschutz.html" style="color:rgba(212,163,115,0.6);">Datenschutzerklärung</a> zu.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span>NOVÆTHER</span>
+      </div>
+      <p>&copy; 2026 NOVÆTHER · Tobias Sommer · Österreich</p>
+      <nav class="footer-nav">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
