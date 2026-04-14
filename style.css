@@ -7,10 +7,14 @@
   --color-primary: #d4a373;
   --color-secondary: rgba(212, 163, 115, 0.18);
   --color-glass: rgba(255, 255, 255, 0.03);
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Times New Roman', serif;
+  --font-body: 'Arial', sans-serif;
   --transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   --border-gold: rgba(212, 163, 115, 0.2);
+}
+
+.ae-gold {
+  color: var(--color-primary);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
